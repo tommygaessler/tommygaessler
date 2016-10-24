@@ -25,6 +25,7 @@ iframe {
   height: 0;
   overflow: hidden;
   width: 100%;
+  border-radius: 4px;
 }
 
 #success-message {
@@ -137,7 +138,7 @@ img {
   width: 100%;
 }
 .background-image {
-  background-image: url('');
+  background-image: url('/img/carlight.jpeg');
 }
 
 /*-------- side --------*/
