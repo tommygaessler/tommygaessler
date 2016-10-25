@@ -10,7 +10,7 @@
 
   function homeController($scope) {
     /*jshint validthis: true */
-    this.greeting = 'Home';
+    
   }
 
 })();

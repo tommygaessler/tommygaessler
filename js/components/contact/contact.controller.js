@@ -6,11 +6,22 @@
     .module('myApp.components.contact', [])
     .controller('contactController', contactController);
 
-  contactController.$inject = ['$scope'];
+  contactController.$inject = ['$scope', 'ContactService'];
 
-  function contactController($scope) {
+  function contactController($scope, ContactService) {
     /*jshint validthis: true */
-    this.greeting = 'Contact';
+    const vm = this;
+    this.form = true;
+
+    vm.SendGrid = function() {
+      ContactService.SendGrid(vm.emailObj)
+      .then((message) => {
+        vm.message = message.data.message;
+      })
+      .catch(() => {
+        // error message
+      });
+    };
   }
 
 })();
