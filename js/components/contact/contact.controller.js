@@ -14,6 +14,7 @@
     this.form = true;
 
     vm.SendGrid = function() {
+      vm.submit = true;
       ContactService.SendGrid(vm.emailObj)
       .then((message) => {
         vm.message = message.data.message;

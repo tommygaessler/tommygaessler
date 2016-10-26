@@ -139,7 +139,7 @@ h1 {
 
 .well .twitter-share-button, .well iframe {
   float: right;
-  margin-top: 20px;
+  margin-top: 24px;
   margin-left: 10px;
 }
 
@@ -150,7 +150,7 @@ img {
   width: 100%;
 }
 .background-image {
-  background-image: url('/img/carlight.jpeg');
+  background-image: url('/img/background.jpeg');
 }
 
 /*-------- side --------*/
