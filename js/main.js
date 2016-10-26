@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  $('.navbar-toggle').on('click', function () {
-    $(this).toggleClass('active');
+  $('li a, .navbar-toggle').on('click', function () {
+    $('.navbar-toggle').toggleClass('active');
   });
 
 }());
