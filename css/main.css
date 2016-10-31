@@ -2,12 +2,8 @@
   display: none;
 }
 
-@media only screen and (max-width : 767px) {
-  .navbar {
-    display: block;
-    margin-bottom: 0;
-    width: 100%;
-  }
+a:focus {
+  text-decoration: none;
 }
 
 .video-container iframe {
@@ -252,7 +248,56 @@ textarea {
 
 /*-------- media queries --------*/
 
+@media (max-width: 983px) {
+  .main {
+    padding: 60px 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-title {
+    font-size: 20px;
+  }
+
+  .well .twitter-share-button, .well iframe {
+    margin-top: 17px;
+  }
+}
+
+@media (max-width: 374px) {
+
+  .well h2 {
+    display: block;
+  }
+
+  .project-title {
+    font-size: 25px;
+  }
+
+  .project-well p:first-of-type {
+    clear: both;
+  }
+
+  .well p {
+    font-size: 15px;
+  }
+
+  .well .twitter-share-button, .well iframe {
+    float: left;
+    margin-right: 10px;
+    margin-left: 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+}
+
 @media (max-width: 767px) {
+
+  .navbar {
+    display: block;
+    margin-bottom: 0;
+    width: 100%;
+  }
 
   li.mobile-only {
     display: block;
