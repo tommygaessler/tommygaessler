@@ -12,7 +12,7 @@
     this.SendGrid = function(form) {
       return $http({
         method: 'POST',
-        url: 'https://damp-shore-14356.herokuapp.com/',
+        url: 'https://sendgrid-email-server.herokuapp.com/',
         data: form,
         headers: {'Content-Type': 'application/json'}
       });
