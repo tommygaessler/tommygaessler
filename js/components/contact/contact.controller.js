@@ -19,8 +19,8 @@
       .then((message) => {
         vm.message = message.data.message;
       })
-      .catch(() => {
-        
+      .catch((error) => {
+        console.log(error);
       });
     };
   }
