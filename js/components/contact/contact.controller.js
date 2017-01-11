@@ -20,7 +20,7 @@
         vm.message = message.data.message;
       })
       .catch(() => {
-        // error message
+        
       });
     };
   }
