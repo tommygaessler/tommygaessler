@@ -1,9 +1,47 @@
+.regis-jesuit-high-school {
+  color: #c4112f;
+}
+
+.regis-jesuit-high-school:hover, .regis-jesuit-high-school:focus {
+  color: #910000;
+}
+
+.galvanize {
+  color: #f7901e;
+}
+
+.galvanize:hover, .galvanize:focus {
+  color: #C45D00;
+}
+
+.airstream-health {
+  color: #bfdb39;
+}
+
+.airstream-health:hover, .airstream-health:focus {
+  color: #8CA806;
+}
+
+.techstars {
+  color: #00a843;
+}
+
+.techstars:hover, .techstars:focus {
+  color: #007510;
+}
+
 .navbar {
   display: none;
 }
 
 a:focus {
   text-decoration: none;
+}
+
+.twitter-tweet {
+  margin: auto;
+  margin-top: 50px !important;
+  display: block;
 }
 
 .video-container iframe {
