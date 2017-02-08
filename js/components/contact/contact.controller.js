@@ -16,12 +16,12 @@
     const vm = this;
     vm.form = true;
 
-    vm.emailEmptyErrorMessage = false;
-    vm.emailInvalidErrorMessage = false;
+    vm.emailEmptyErrorMessage;
+    vm.emailInvalidErrorMessage;
 
-    vm.nameEmptyErrorMessage = false;
+    vm.nameEmptyErrorMessage;
 
-    vm.messageEmptyErrorMessage = false;
+    vm.messageEmptyErrorMessage;
 
 
     vm.SendGrid = function() {

@@ -5,25 +5,30 @@
 <p ng-hide="contactCtrl.message">Feel free to reach out, I'd love to hear from you!</p>
 
 <form ng-if="contactCtrl.form" ng-submit="contactCtrl.SendGrid()" ng-hide="contactCtrl.message">
-  <div class="form-group" ng-class="{'has-error has-feedback': contactCtrl.nameEmptyErrorMessage}">
+  <div class="form-group has-feedback" ng-class="{'has-error': contactCtrl.nameEmptyErrorMessage, 'has-success': contactCtrl.nameEmptyErrorMessage === false}">
     <label for="name">Your Name</label>
     <input type="text" class="form-control" id="name" ng-model="contactCtrl.emailObj.name" autofocus>
 
     <span ng-if="contactCtrl.nameEmptyErrorMessage" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+    <span ng-if="contactCtrl.nameEmptyErrorMessage === false" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
 
   </div>
-  <div class="form-group" ng-class="{'has-error has-feedback': contactCtrl.emailEmptyErrorMessage, 'has-error has-feedback': contactCtrl.emailInvalidErrorMessage}">
+  <div class="form-group has-feedback" ng-class="{'has-error': contactCtrl.emailEmptyErrorMessage, 'has-error': contactCtrl.emailInvalidErrorMessage, 'has-success': contactCtrl.emailEmptyErrorMessage === false && contactCtrl.emailInvalidErrorMessage === false}">
     <label for="email">Your Email</label>
     <input type="text" class="form-control" id="from_email" ng-model="contactCtrl.emailObj.from_email">
 
     <span ng-if="contactCtrl.emailEmptyErrorMessage || contactCtrl.emailInvalidErrorMessage" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
 
+    <span ng-if="contactCtrl.emailEmptyErrorMessage === false && contactCtrl.emailInvalidErrorMessage === false" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+
   </div>
-  <div class="form-group" ng-class="{'has-error has-feedback': contactCtrl.messageEmptyErrorMessage}">
+  <div class="form-group has-feedback" ng-class="{'has-error': contactCtrl.messageEmptyErrorMessage, 'has-success': contactCtrl.messageEmptyErrorMessage === false}">
     <label for="message">Your Message</label>
     <textarea class="form-control" rows="5" id="message" ng-model="contactCtrl.emailObj.message"></textarea>
 
     <span ng-if="contactCtrl.messageEmptyErrorMessage" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+
+    <span ng-if="contactCtrl.messageEmptyErrorMessage === false" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
 
   </div>
   <div class="form-group">
