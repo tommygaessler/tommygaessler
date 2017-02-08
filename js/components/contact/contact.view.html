@@ -4,7 +4,7 @@
 
 <p ng-hide="contactCtrl.message">Feel free to reach out, I'd love to hear from you!</p>
 
-<form ng-if="contactCtrl.form" ng-submit="contactCtrl.SendGrid()" ng-hide="contactCtrl.message">
+<form ng-submit="contactCtrl.SendGrid()" ng-hide="contactCtrl.message">
   <div class="form-group has-feedback" ng-class="{'has-error': contactCtrl.nameEmptyErrorMessage, 'has-success': contactCtrl.nameEmptyErrorMessage === false}">
     <label for="name">Your Name</label>
     <input type="text" class="form-control" id="name" ng-model="contactCtrl.emailObj.name" autofocus>

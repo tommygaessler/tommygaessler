@@ -11,62 +11,67 @@
   function contactController($scope, ContactService) {
     /*jshint validthis: true */
 
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
     const vm = this;
-    vm.form = true;
 
-    vm.emailEmptyErrorMessage;
-    vm.emailInvalidErrorMessage;
+    if (localStorage.getItem('contacted')) {
+      vm.message = localStorage.getItem('contacted');
+    } else {
 
-    vm.nameEmptyErrorMessage;
+      const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    vm.messageEmptyErrorMessage;
+      vm.emailEmptyErrorMessage;
+      vm.emailInvalidErrorMessage;
+      vm.nameEmptyErrorMessage;
+      vm.messageEmptyErrorMessage;
 
+      vm.SendGrid = function() {
 
-    vm.SendGrid = function() {
+        if(angular.isUndefined(vm.emailObj)) {
+          vm.emailObj = '';
+        }
 
-      if(angular.isUndefined(vm.emailObj)) {
-        vm.emailObj = '';
-      }
+        if(!emailRegex.test(vm.emailObj.from_email)) {
+          vm.emailInvalidErrorMessage = true;
+        } else {
+          vm.emailInvalidErrorMessage = false;
+        }
 
-      if(!emailRegex.test(vm.emailObj.from_email)) {
-        vm.emailInvalidErrorMessage = true;
-      } else {
-        vm.emailInvalidErrorMessage = false;
-      }
+        if(vm.emailObj.from_email === '' || vm.emailObj.from_email === undefined) {
+          vm.emailEmptyErrorMessage = true;
+        } else {
+          vm.emailEmptyErrorMessage = false;
+        }
 
-      if(vm.emailObj.from_email === '' || vm.emailObj.from_email === undefined) {
-        vm.emailEmptyErrorMessage = true;
-      } else {
-        vm.emailEmptyErrorMessage = false;
-      }
+        if(vm.emailObj.name === '' || vm.emailObj.name === undefined) {
+          vm.nameEmptyErrorMessage = true;
+        } else {
+          vm.nameEmptyErrorMessage = false;
+        }
 
-      if(vm.emailObj.name === '' || vm.emailObj.name === undefined) {
-        vm.nameEmptyErrorMessage = true;
-      } else {
-        vm.nameEmptyErrorMessage = false;
-      }
+        if(vm.emailObj.message === '' || vm.emailObj.message === undefined) {
+          vm.messageEmptyErrorMessage = true;
+        } else {
+          vm.messageEmptyErrorMessage = false;
+        }
 
-      if(vm.emailObj.message === '' || vm.emailObj.message === undefined) {
-        vm.messageEmptyErrorMessage = true;
-      } else {
-        vm.messageEmptyErrorMessage = false;
-      }
+        if(!vm.emailInvalidErrorMessage && !vm.emailEmptyErrorMessage && !vm.nameEmptyErrorMessage && !vm.messageEmptyErrorMessage) {
 
-      if(!vm.emailInvalidErrorMessage && !vm.emailEmptyErrorMessage && !vm.nameEmptyErrorMessage && !vm.messageEmptyErrorMessage) {
+          vm.submit = true;
 
-        vm.submit = true;
+          ContactService.SendGrid(vm.emailObj)
+          .then((message) => {
 
-        ContactService.SendGrid(vm.emailObj)
-        .then((message) => {
-          vm.message = message.data.message;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      }
-    };
+            vm.message = message.data.message;
+
+            localStorage.setItem('contacted', vm.message);
+          })
+          .catch((error) => {
+            vm.message = error;
+            console.log(error);
+          });
+        }
+      };
+    }
   }
 
 })();
