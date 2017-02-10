@@ -12,7 +12,7 @@
     this.SendGrid = function(form) {
       return $http({
         method: 'POST',
-        url: 'https://sendgrid-email-server.herokuapp.com/',
+        url: 'https://ujj9l4tjj6.execute-api.us-east-1.amazonaws.com/prod/sendgrid-email-serverless',
         data: form,
         headers: {'Content-Type': 'application/json'}
       });

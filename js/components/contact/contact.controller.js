@@ -6,12 +6,17 @@
     .module('myApp.components.contact', [])
     .controller('contactController', contactController);
 
-  contactController.$inject = ['$scope', 'ContactService'];
+  contactController.$inject = ['$scope', 'ContactService', '$route'];
 
-  function contactController($scope, ContactService) {
+  function contactController($scope, ContactService, $route) {
     /*jshint validthis: true */
 
     const vm = this;
+
+    vm.send = function() {
+      localStorage.removeItem('contacted');
+      $route.reload();
+    }
 
     if (localStorage.getItem('contacted')) {
       vm.message = localStorage.getItem('contacted');
@@ -61,7 +66,7 @@
           ContactService.SendGrid(vm.emailObj)
           .then((message) => {
 
-            vm.message = message.data.message;
+            vm.message = message.data.body;
 
             localStorage.setItem('contacted', vm.message);
           })

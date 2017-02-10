@@ -1,6 +1,9 @@
 <h1>Contact</h1>
 
-<h4 class="text-center alert alert-success" ng-show="contactCtrl.message">{{ contactCtrl.message }}</h4>
+<div class="alert alert-success text-center" ng-show="contactCtrl.message">
+  <h4 ng-show="contactCtrl.message">{{ contactCtrl.message }}</h4>
+  <p ng-click="contactCtrl.send()">Click here to send another message!</p>
+</div>
 
 <p ng-hide="contactCtrl.message">Feel free to reach out, I'd love to hear from you!</p>
 

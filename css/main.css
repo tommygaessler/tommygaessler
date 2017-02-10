@@ -30,6 +30,15 @@
   color: #007510;
 }
 
+.alert.alert-success.text-center p {
+  cursor: pointer;
+}
+
+.alert.alert-success.text-center p:hover {
+  text-decoration: underline;
+}
+
+
 .navbar {
   display: none;
 }
