@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base href="/tommygaessler2/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  <script>
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
+<link href="styles.bundle.css" rel="stylesheet"/></head>
+<body>
+  <app-root>Loading...</app-root>
+  <!-- jQuery -->
+  <script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+  <!-- bootstrap -->
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:426130,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
